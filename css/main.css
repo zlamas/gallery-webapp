@@ -1,0 +1,202 @@
+@font-face {
+	font-display: swap;
+	font-family: Playfair Display;
+	font-weight: 400;
+	src: url(/fonts/PlayfairDisplay-Regular.woff2)
+}
+@font-face {
+	font-display: swap;
+	font-family: Playfair Display;
+	font-weight: 700;
+	src: url(/fonts/PlayfairDisplay-Bold.woff2)
+}
+@font-face {
+	font-display: swap;
+	font-family: Playfair Display;
+	font-style: italic;
+	src: url(/fonts/PlayfairDisplay-Italic.woff2)
+}
+@font-face {
+	font-display: swap;
+	font-family: Playfair Display;
+	font-style: italic;
+	font-weight: 700;
+	src: url(/fonts/PlayfairDisplay-BoldItalic.woff2)
+}
+html,
+body {
+	height: 100%;
+	overflow: hidden;
+}
+body {
+	display: flex;
+	background: #333;
+	flex-direction: column;
+	text-align: center;
+	-webkit-user-select: none;
+	user-select: none;
+}
+h1,
+h2,
+h3 {
+	margin: 0;
+}
+input::-webkit-inner-spin-button {
+	display: none;
+}
+p,
+ul {
+	line-height: 1.3;
+	margin: 0.5em 0;
+	text-align: left;
+}
+.arrow {
+	width: 48px;
+}
+.arrow-group {
+	display: flex;
+	transition: opacity 0.3s;
+}
+.cover-box {
+	margin-bottom: 0.5em;
+}
+.cover-box > img {
+	height: 100%;
+	width: 100%;
+}
+.disabled {
+	opacity: 0.2;
+}
+.flex-image {
+	min-height: 0;
+	flex: 1;
+}
+.flex-image,
+.cover-box > img {
+	object-fit: contain;
+}
+.flipbook-wrapper {
+	min-height: 0;
+	flex: 1;
+	font-family: Playfair Display, serif;
+}
+.flipbook {
+	display: none;
+}
+.flipped {
+	transform: rotate(180deg);
+}
+.full-width {
+	display: block;
+	width: 100%;
+	margin: 1em 0;
+}
+.image-section {
+	display: flex;
+	align-items: center;
+}
+.img-logo {
+	width: 1.4em;
+	vertical-align: middle;
+}
+.img-qr-code {
+	width: 7em;
+}
+.img-stamp {
+	width: 3.6em;
+}
+.list-checkmark {
+	list-style: none;
+	padding-left: 0.7em;
+}
+.list-checkmark > li::before {
+	content: url(/img/check.svg);
+	display: inline-block;
+	width: 0.7em;
+	margin: 0 0.2em 0 -0.9em;
+}
+.p-center {
+	text-align: center;
+}
+.page {
+	background: linear-gradient(to left, #eee 95%, #aaa);
+}
+.display-double .page-even {
+	background: linear-gradient(to right, #eee 95%, #aaa);
+}
+.page-1 {
+	font-size: 1.6em;
+}
+.page-content {
+	height: 100%;
+	width: 100%;
+	padding: 2em;
+}
+.page-content:not(.page-promo)::before {
+	content: '';
+	position: absolute;
+	top: 0.25em;
+	left: 0;
+	right: 0;
+	height: 1.5em;
+	background: url(../img/logo.png) no-repeat center / contain;
+}
+.page-flex {
+	display: flex;
+	flex-direction: column;
+}
+.page-promo {
+	outline: 0.5em double;
+	outline-offset: -1em;
+}
+.promo-heading {
+	font: 2em Edo, sans-serif;
+}
+.text-large {
+	font-size: 1.5em;
+}
+.text-small {
+	font-size: 0.75em;
+}
+.tips {
+	border: 0.25em double;
+	padding: 0 0.3em;
+}
+.toolbar {
+	display: flex;
+	height: 56px;
+	background: linear-gradient(black, transparent);
+	color: white;
+	font-family: Open Sans, sans-serif;
+	justify-content: center;
+}
+.toolbar-current-pages {
+	position: absolute;
+	top: 2px;
+	width: 100%;
+	pointer-events: none;
+}
+.toolbar-field:focus + .toolbar-current-pages {
+	display: none;
+}
+.toolbar-field {
+	width: 100%;
+	-moz-appearance: textfield;
+	appearance: textfield;
+	background: none;
+	border: 2px solid;
+	border-radius: 5px;
+	color: inherit;
+	font: inherit;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+}
+.toolbar-page-number {
+	font-weight: bold;
+}
+.toolbar-page-selector {
+	position: relative;
+	width: 5em;
+	margin: auto 0.5em;
+}
