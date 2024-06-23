@@ -1,8 +1,7 @@
 <div>
 	<div class="page-content page-flex">
 		<picture class="flex-image cover-box">
-			<source srcset="img/<?= $book ?>_box.webp" type="image/webp">
-			<img src="img/<?= $book ?>_box.png" alt>
+			<img src="img/<?= $book ?>_box.jpg" alt>
 		</picture>
 		<h1 class="text-large"><i>Квантовое Таро,</i></h1>
 		<i>версия 2.0</i>
@@ -10,20 +9,7 @@
 	</div>
 </div>
 <div>
-	<div class="page-content page-promo">
-		<h2 class="promo-heading">Black Cat Tarot представляет</h2>
-		<img class="full-width" src="/img/school_poster.jpg" alt>
-		<ul class="list-checkmark">
-			<li>Обучение таро по авторской программе</li>
-			<li>Уникальная и интересная подача материала</li>
-			<li>Возможность обучаться как вживую, так и офлайн</li>
-		</ul>
-		<div class="image-section">
-			<div class="text-large">Подробности на сайте <i>https://blackcattarot.ru</i></div>
-			<img class="img-stamp" src="/img/stamp.png" alt>
-		</div>
-		<div class="text-large">Учитесь с нами.<br>Учитесь легко и <b>БЫСТРО</b>!</div>
-	</div>
+<?php require 'promo1.html' ?>
 </div>
 <div>
 	<div class="page-content">
@@ -36,28 +22,21 @@
 	</div>
 </div>
 <?php
-$i = 0;
-foreach ($csv as $card) {
-	[$roman, $name, $name_extra, $description] = $card;
+foreach ($csv as $index => $card) {
+	[$name, $name_extra, $description] = $card;
 	$description_parts = explode('^', $description);
 	$description = array_shift($description_parts);
 ?>
 <div>
 	<div class="page-content page-flex">
-		<img class="flex-image" src="/projector/img/<?= $book.'/'.$i ?>.jpg" alt>
-		<p class="text-large p-center"><i>
-<?php if (strlen($roman)) echo $roman.' — '; echo $name ?>
-		</i></p>
-		<i>
-<?php if (strlen($name_extra)) echo $name_extra ?>
-		</i>
+		<img class="flex-image" src="/projector/img/<?= $book.'/'.$index ?>.jpg" alt>
+		<p class="text-large p-center"><i><?= $name ?></i></p>
+		<i><?= $name_extra ?></i>
 	</div>
 </div>
 <div>
 	<div class="page-content">
-		<h2>
-<?php if (strlen($roman)) echo $roman.' — '; echo $name ?>
-		</h2>
+		<h2><?= $name ?></h2>
 		<p><?= $description ?></p>
 	</div>
 </div>
@@ -69,24 +48,8 @@ foreach ($csv as $card) {
 </div>
 <?php
 	}
-	$i++;
 }
 ?>
 <div>
-	<div class="page-content page-promo">
-		<h2 class="promo-heading">
-			Подписывайтесь на наш официальный Телеграм-канал<br>
-			<img class="img-logo" src="/img/telegram.svg" alt> Black Cat Tarot LIVE
-		</h2>
-		<ul class="list-checkmark">
-			<li>Последние новости и регулярные уведомления</li>
-			<li>Живое общение с единомышленниками</li>
-			<li>Бесплатная Карта Дня — ЭКСКЛЮЗИВНО для подписчиков!</li>
-		</ul>
-		<p class="text-large p-center">Сканируйте QR-код:</p>
-		<img class="img-qr-code" src="img/qr1.png" alt>
-		<div>или переходите на наш сайт</div>
-		<p class="text-large p-center"><i>https://blackcattarot.ru</i></p>
-		<div class="text-large">Ждём вас!</div>
-	</div>
+<?php require 'promo2.html' ?>
 </div>
