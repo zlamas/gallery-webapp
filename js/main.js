@@ -73,12 +73,12 @@ document.getElementById('arrow-next')
 document.getElementById('arrow-last')
 	.addEventListener('click', () => $book.turn('page', totalPages));
 
-pageInput.addEventListener('blur', function () {
-	$book.turn('page', this.value);
-	this.value = '';
+pageInput.addEventListener('blur', () => {
+	$book.turn('page', pageInput.value);
+	pageInput.value = '';
 });
 
-document.getElementById('page-selector').addEventListener('submit', event => {
+document.getElementById('page-selector').addEventListener('submit', (event) => {
 	event.preventDefault();
 	pageInput.blur();
 });
