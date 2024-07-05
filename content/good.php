@@ -33,9 +33,8 @@ foreach ($csv as $index => $card) {
 </div>
 <div>
 	<div class="page-content">
-		<h2>
-<?php if (strlen($roman)) echo $roman.' — '; echo $name ?><?= $name ?></h2>
-		<p><b><?= strlen($roman) ? 'Ключевое слово' : 'Ключевые слова' ?>:</b> <?= $keywords ?>.</p>
+		<h2><?= $name ?></h2>
+		<p><b>Ключевые слова:</b> <?= $keywords ?>.</p>
 		<p><?= $description ?></p>
 	</div>
 </div>
