@@ -36,13 +36,13 @@ $book.turn({
 			pageNumber.textContent = totalPages;
 			arrowsRight.classList.add('disabled');
 		},
-		tap(e) {
-			$book.turn('toggleZoom', { pageX: e.pageX, pageY: e.pageY });
+		tap(event) {
+			$book.turn('toggleZoom', event);
 		},
-		turned(e, page) {
+		turned(event, page) {
 			if (page == 1) $book.turn('peel', 'br');
 		},
-		turning(e, page, view) {
+		turning(event, page, view) {
 			pageNumber.textContent = view.join(' - ');
 			arrowsLeft.classList.remove('disabled');
 			arrowsRight.classList.remove('disabled');

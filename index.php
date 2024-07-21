@@ -20,7 +20,7 @@ $csv = array_map('str_getcsv', file($path.'.csv'));
 <link rel="stylesheet" href="css/main.css?4">
 <script src="libs/jquery-3.7.1.min.js"></script>
 <script src="libs/turn.min.js?1"></script>
-<script src="js/main.js?5"></script>
+<script src="js/main.js?6"></script>
 
 <div class="toolbar">
 	<div id="arrows-left" class="arrow-group disabled">
