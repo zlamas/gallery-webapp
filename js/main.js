@@ -10,10 +10,10 @@ let totalPages;
 let sample;
 
 function playSound() {
-	let source = audioContext.createBufferSource();
-	source.buffer = sample;
-	source.connect(audioContext.destination);
-	source.start();
+    let source = audioContext.createBufferSource();
+    source.buffer = sample;
+    source.connect(audioContext.destination);
+    source.start();
 }
 
 fetch('res/page-flip.' + (new Audio().canPlayType('audio/ogg;codecs=opus') ? 'opus' : 'mp3'))
@@ -22,42 +22,42 @@ fetch('res/page-flip.' + (new Audio().canPlayType('audio/ogg;codecs=opus') ? 'op
 .then((data) => sample = data);
 
 $book.turn({
-	animatedAutoCenter: true,
-	autoScaleContent: true,
-	pageHeight: 750,
-	pageWidth: 500,
-	responsive: true,
-	when: {
-		first() {
-			pageNumber.textContent = 1;
-			arrowsLeft.classList.add('disabled');
-		},
-		last() {
-			pageNumber.textContent = totalPages;
-			arrowsRight.classList.add('disabled');
-		},
-		tap(event) {
-			$book.turn('toggleZoom', event);
-		},
-		turned(event, page) {
-			if (page == 1) $book.turn('peel', 'br');
-		},
-		turning(event, page, view) {
-			pageNumber.textContent = view.join(' - ');
-			arrowsLeft.classList.remove('disabled');
-			arrowsRight.classList.remove('disabled');
-			playSound();
-		},
-		resize() {
-			if ($book.turn('zoom') == 1) {
-				let page = $book.turn('page');
-				if (page > 1 && page < totalPages) {
-					pageNumber.textContent = $book.turn('view').join(' - ');
-				}
-				$book.css('font-size', $book.height() / 40 + 'px');
-			}
-		}
-	}
+    animatedAutoCenter: true,
+    autoScaleContent: true,
+    pageHeight: 750,
+    pageWidth: 500,
+    responsive: true,
+    when: {
+        first() {
+            pageNumber.textContent = 1;
+            arrowsLeft.classList.add('disabled');
+        },
+        last() {
+            pageNumber.textContent = totalPages;
+            arrowsRight.classList.add('disabled');
+        },
+        tap(event) {
+            $book.turn('toggleZoom', event);
+        },
+        turned(event, page) {
+            if (page == 1) $book.turn('peel', 'br');
+        },
+        turning(event, page, view) {
+            pageNumber.textContent = view.join(' - ');
+            arrowsLeft.classList.remove('disabled');
+            arrowsRight.classList.remove('disabled');
+            playSound();
+        },
+        resize() {
+            if ($book.turn('zoom') == 1) {
+                let page = $book.turn('page');
+                if (page > 1 && page < totalPages) {
+                    pageNumber.textContent = $book.turn('view').join(' - ');
+                }
+                $book.css('font-size', $book.height() / 40 + 'px');
+            }
+        }
+    }
 }).turn('peel', 'br');
 
 document.getElementById('total-pages').textContent = pageInput.max = totalPages = $book.turn('pages');
@@ -65,21 +65,20 @@ document.getElementById('total-pages').textContent = pageInput.max = totalPages 
 document.addEventListener('touchstart', () => audioContext.resume(), { once: true });
 
 document.getElementById('arrow-first')
-	.addEventListener('click', () => $book.turn('page', 1));
+    .addEventListener('click', () => $book.turn('page', 1));
 document.getElementById('arrow-prev')
-	.addEventListener('click', () => $book.turn('previous'));
+    .addEventListener('click', () => $book.turn('previous'));
 document.getElementById('arrow-next')
-	.addEventListener('click', () => $book.turn('next'));
+    .addEventListener('click', () => $book.turn('next'));
 document.getElementById('arrow-last')
-	.addEventListener('click', () => $book.turn('page', totalPages));
+    .addEventListener('click', () => $book.turn('page', totalPages));
 
 pageInput.addEventListener('blur', () => {
-	$book.turn('page', pageInput.value);
-	pageInput.value = '';
+    $book.turn('page', pageInput.value);
+    pageInput.value = '';
 });
-
 document.getElementById('page-selector').addEventListener('submit', (event) => {
-	event.preventDefault();
-	pageInput.blur();
+    event.preventDefault();
+    pageInput.blur();
 });
 });
