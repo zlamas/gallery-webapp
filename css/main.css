@@ -1,24 +1,24 @@
 @font-face {
   font-display: swap;
-  font-family: 'Playfair Display';
+  font-family: "Playfair Display";
   font-weight: 400;
   src: url(/fonts/PlayfairDisplay-Regular.woff2)
 }
 @font-face {
   font-display: swap;
-  font-family: 'Playfair Display';
+  font-family: "Playfair Display";
   font-weight: 700;
   src: url(/fonts/PlayfairDisplay-Bold.woff2)
 }
 @font-face {
   font-display: swap;
-  font-family: 'Playfair Display';
+  font-family: "Playfair Display";
   font-style: italic;
   src: url(/fonts/PlayfairDisplay-Italic.woff2)
 }
 @font-face {
   font-display: swap;
-  font-family: 'Playfair Display';
+  font-family: "Playfair Display";
   font-style: italic;
   font-weight: 700;
   src: url(/fonts/PlayfairDisplay-BoldItalic.woff2)
@@ -79,7 +79,7 @@ ul {
 .flipbook-wrapper {
   min-height: 0;
   flex: 1;
-  font-family: 'Playfair Display', serif;
+  font-family: "Playfair Display", serif;
 }
 .flipbook {
   display: none;
@@ -135,7 +135,7 @@ ul {
   pointer-events: none;
 }
 .page-content:not(.page-promo)::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0.25em;
   left: 0;
@@ -152,7 +152,7 @@ ul {
   outline-offset: -1em;
 }
 .promo-heading {
-  font: 2em 'Edo', sans-serif;
+  font: 2em "Edo", sans-serif;
 }
 .text-large {
   font-size: 1.5em;
@@ -169,7 +169,7 @@ ul {
   height: 56px;
   background: linear-gradient(black, transparent);
   color: white;
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   justify-content: center;
 }
 .toolbar-current-pages {
