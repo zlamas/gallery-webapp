@@ -42,9 +42,6 @@ h2,
 h3 {
   margin: 0;
 }
-input::-webkit-inner-spin-button {
-  display: none;
-}
 p,
 ul {
   line-height: 1.3;
