@@ -42,9 +42,3 @@ $csv = array_map('str_getcsv', file($path.'.csv'));
 <?php require $path.'.php' ?>
   </div>
 </main>
-<script src="libs/telegram-web-app.min.js"></script>
-<script>
-Telegram.WebApp.ready();
-Telegram.WebApp.expand();
-Telegram.WebApp.BackButton.show().onClick(Telegram.WebApp.close);
-</script>
