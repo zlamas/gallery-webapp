@@ -43,7 +43,7 @@ $book.turn({
             if (page == 1) $book.turn('peel', 'br');
         },
         turning(event, page, view) {
-            pageNumber.textContent = view.join(' - ');
+            pageNumber.textContent = view.join('-');
             arrowsLeft.classList.remove('disabled');
             arrowsRight.classList.remove('disabled');
             playSound();
@@ -52,7 +52,7 @@ $book.turn({
             if ($book.turn('zoom') == 1) {
                 let page = $book.turn('page');
                 if (page > 1 && page < totalPages) {
-                    pageNumber.textContent = $book.turn('view').join(' - ');
+                    pageNumber.textContent = $book.turn('view').join('-');
                 }
                 $book.css('font-size', $book.height() / 40 + 'px');
             }

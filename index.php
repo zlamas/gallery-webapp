@@ -17,10 +17,10 @@ $csv = array_map('str_getcsv', file($path.'.csv'));
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="/css/common.css">
-<link rel="stylesheet" href="css/main.css?v=1">
+<link rel="stylesheet" href="css/main.css?v=2">
 <script src="libs/jquery-3.7.1.min.js"></script>
 <script src="libs/turn.min.js?v=1"></script>
-<script src="js/main.js?v=1"></script>
+<script src="js/main.js?v=2"></script>
 
 <div class="toolbar">
   <div id="arrows-left" class="arrow-group disabled">
