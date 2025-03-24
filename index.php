@@ -17,11 +17,12 @@ $csv = array_map('str_getcsv', file($path.'.csv'));
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="/css/common.css">
-<link rel="stylesheet" href="css/main.css?v=2">
+<link rel="stylesheet" href="css/main.css?v=3">
 <script src="libs/jquery-3.7.1.min.js"></script>
 <script src="libs/turn.min.js?v=1"></script>
 <script src="js/main.js?v=2"></script>
 
+<div class="padding"></div>
 <div class="toolbar">
   <div id="arrows-left" class="arrow-group disabled">
     <img class="arrow flipped" id="arrow-first" src="img/arrow_end.svg" alt>
@@ -37,8 +38,15 @@ $csv = array_map('str_getcsv', file($path.'.csv'));
     <img class="arrow" id="arrow-last" src="img/arrow_end.svg" alt>
   </div>
 </div>
-<main class="flipbook-wrapper">
-  <div id="book" class="flipbook">
-<?php require $path.'.php' ?>
+<main class="content">
+  <div class="flipbook-wrapper">
+    <div id="book" class="flipbook">
+  <?php require $path.'.php' ?>
+    </div>
   </div>
 </main>
+<script src="libs/telegram-web-app.min.js?v=1"></script>
+<script>
+Telegram.WebApp.ready();
+Telegram.WebApp.requestFullscreen();
+</script>
