@@ -3,12 +3,17 @@
 $book = $_GET['tgWebAppStartParam'] ?? $_GET['book'] ?? '';
 $path = 'content/'.$book;
 
-if (!preg_match('/\w+/', $book) || !file_exists($path.'.csv')) {
+if (!preg_match('/\w+/', $book) || ($file = fopen($path.'.csv', 'r')) === false) {
   header('Location: /');
   exit;
 }
 
-$csv = array_map('str_getcsv', file($path.'.csv'));
+$csv = [];
+while (($data = fgetcsv($file, escape: '')) !== false) {
+  $csv[] = $data;
+}
+
+fclose($file);
 
 ?>
 <!doctype html>
@@ -41,12 +46,14 @@ $csv = array_map('str_getcsv', file($path.'.csv'));
 <main class="content">
   <div class="flipbook-wrapper">
     <div id="book" class="flipbook">
-  <?php require $path.'.php' ?>
+<?php require $path.'.php' ?>
     </div>
   </div>
 </main>
+<?php if (array_key_exists('tgWebAppStartParam', $_GET)) { ?>
 <script src="libs/telegram-web-app.min.js?v=1"></script>
 <script>
 Telegram.WebApp.ready();
 Telegram.WebApp.requestFullscreen();
 </script>
+<?php } ?>
